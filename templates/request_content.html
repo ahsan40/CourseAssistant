@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reuest Content</title>
+</head>
+
+<style>
+    input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+      width: 100%;
+      background-color: #3DA8E4;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #3DA8E4;
+      opacity:1.0;
+    }
+    
+    div {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+</style>
+
+
+<script>
+
+  function show()
+  {  
+    let title=document.getElementById('title').value;
+    let code=document.getElementById('course_code').value;
+    let semester=document.getElementById('semester').value;
+    let description=document.getElementById('description').value;
+
+    if(title=="" || code=="" || semester=="" || description=="")
+      alert("Please fill up all fields")
+    else  
+      alert("Your Request Submitted Successfully");
+     
+   
+     
+  }
+
+
+
+
+</script>
+
+
+
+
+
+
+<body>
+
+ 
+
+
+<div style="width: 50%; margin:auto ">
+    <h2 style="color:#F3B559">Request for your desired content</h2>
+
+
+
+  <form action=""  method="POST">
+    {% csrf_token %}
+    <label for="title">Course Title</label>
+    <input type="text" id="title" name="title" placeholder="Title">
+
+
+    <label for="course_code">Course Code</label>
+    <input type="text" id="course_code" name="course_code" placeholder="Course Code">
+
+
+    <label for="semester">Semester</label>
+    <input type="text" id="semester" name="semester" placeholder="Semester">
+    
+
+    
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" placeholder="Enter description here..." style="height: 80px;">
+    
+
+     <br><br><br>
+  
+    <input type="submit" value="Submit"  onclick="show()"> <br><br>
+
+    
+  </form>
+
+
+
+</div>
+
+
+
+
+
+
+    
+</body>
+</html>
