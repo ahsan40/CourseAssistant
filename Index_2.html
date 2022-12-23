@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Profile Page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'style_2.css' %}">
+
+    </head>
+    <body>
+        <div class="c">
+    
+            <div class="user">
+                <p>Cover photo here</p>
+           
+                
+                 <img src="{% static 'image/pic_1.jpg' %}" alt="">
+                {% comment %} <img src="{{media.Index_2.Image.url}}"/> {% endcomment %}
+                
+            </div>
+            
+            
+                <div class="box" style="margin: 0px;">
+                     
+
+ {% for instance in data %}
+ 
+  
+
+                    <input type="text" placeholder="{{instance.fields.Name}}"><br>
+                    <input type="text" placeholder="{{instance.fields.Department}}"><br>
+                    <input type="text" placeholder= "{{instance.fields.University}}"><br>
+                    <input type="text" placeholder="{{instance.fields.Email}}"> 
+                  
+                    {% endfor %}
+                </div>
+                
+
+                
+            
+            <div class="container" >
+                <button class="btn btn1"><i class="fa fa-pencil"></i> Edit profile</button><br>
+                <button class="btn btn2" style="margin-top:5px"><i class="fa fa-pencil"></i> Change profile</button>
+               
+            </div>
+        
+        <div class="flex-container" style="margin-top:50px ;">
+            {% for i in data %}
+       
+            <div class="div1" >
+                <p>
+                    <img src="{% static 'image/amina.PNG' %}" alt="image not found" style="height: 50px;width:50px; border-radius:50%"> 
+                </p>
+                
+                
+                <h3> System Analysis & Design</h3>
+                <i><b>CSE 2218</b></i><br>
+                <i style="font-size: 14px">Contributor:{{i.fields.Name}}</i>
+    
+                <div class="icon-box" >
+                    <abbr title="Download Content"><i class="fa-solid fa-download" style="color:#86E385 ;"></i></abbr>
+                    <abbr title="Edit"><i class="fa-solid fa-pen-to-square" style="color:#7093F0 ;"></i></abbr>
+                    <abbr title="Comment"><i class="fa-solid fa-comments" style="color:#7093F0 ;"></i></abbr>
+                    <abbr title="Delete"><i class="fa-solid fa-trash" style="color:#FF1D1D ;"></i></abbr>
+    
+                </div>
+                {% endfor %}
+                
+            </div>
+            {% comment %} <div class="div1" > 
+                <p>
+                    <img src="{% static 'image/amina.PNG' %}" alt="image not found" style="height: 50px;width:50px; border-radius:50%"> 
+                </p>
+                
+                
+                <h3> System Analysis & Design</h3>
+                <i><b>CSE 2218</b></i><br>
+                <i style="font-size: 14px">Contributor: Amina Afroz</i>
+    
+                <div class="icon-box" >
+                    <abbr title="Download Content"><i class="fa-solid fa-download" style="color:#86E385 ;"></i></abbr>
+                    <abbr title="Edit"><i class="fa-solid fa-pen-to-square" style="color:#7093F0 ;"></i></abbr>
+                    <abbr title="Comment"><i class="fa-solid fa-comments" style="color:#7093F0 ;"></i></abbr>
+                    <abbr title="Delete"><i class="fa-solid fa-trash" style="color:#FF1D1D ;"></i></abbr>
+    
+                </div> 
+                 {% endcomment %}
+                
+            </div>
+         </div>
+           
+        
+        <div class="last" style="margin-top: 30px;">
+            <button class="btn0 btn3">1</button>
+            <button class="btn0 btn4">2</button>
+            <button class="btn0 btn5">3</button>
+            <button class="btn0 next round">&#8250;</button>
+           
+        </div>
+
+
+    </div>
+        
+
+     </body>
+
+</html>
