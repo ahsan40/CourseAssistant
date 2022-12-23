@@ -1,0 +1,255 @@
+{% load static %}
+{% static "img" as baseURL %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a676914d6c.js" crossorigin="anonymous"></script>
+    <title>Comment</title>
+
+    <style>
+
+        .flex-container{
+           
+            width: 90%;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap; 
+            margin:auto;
+            justify-content: center; 
+            align-items: center; 
+            height: auto;
+        }
+
+        .flex-container > div {
+            background-color: white;
+            margin: 15px;
+            padding: 0px;
+            border-bottom: 0px solid #7093F0;
+            width: 50%; 
+            text-align: center;
+            height: 260px;
+            
+            
+        }
+
+       
+
+        .icon-box{
+           
+            letter-spacing: 10px;
+            font-size: 30px;
+            line-height: 1.8;
+            margin-top: 40px;
+        }
+        
+        
+
+
+            input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+              }
+              
+              input[type=submit] {
+                width: 100%;
+                background-color: #3DA8E4;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                opacity: 0.8;
+              }
+              
+              input[type=submit]:hover {
+                background-color: #3DA8E4;
+                opacity:1.0;
+              }   
+
+
+
+
+              .pagination {
+               
+                margin:auto;
+              }
+              
+              .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                transition: background-color .3s;
+                border: 1px solid #ddd;
+                margin: 0 4px;
+              }
+              
+              .pagination a.active {
+                background-color: #3DA8E4;
+                color: white;
+                border: 1px solid #3DA8E4;
+              }
+              
+              .pagination a:hover:not(.active) {background-color: #ddd;}
+
+    
+    
+    </style>
+
+    
+<script>
+
+    function show()
+    {  
+      let title=document.getElementById('comment').value;
+     
+  
+      if(title=="" )
+        alert("Please shere opinion")
+      else  
+        alert("Your comment added successfully");
+       
+     
+       
+    }
+  
+  
+  
+  
+  </script>
+
+</head>
+<body>
+ 
+        
+        
+
+        
+    
+       
+
+    </div>
+
+    <div class="do_comment" style="width: 30%; margin:auto">
+        <form action=""  method="POST">
+            {% csrf_token %}
+           
+            <input type="text" id="comment" name="comment" placeholder="Share your opinion">
+        
+        
+          
+            <input type="submit" value="Add comment"  onclick="show()"> <br><br>
+        
+            
+          </form>
+    </div>
+
+
+    
+
+
+
+
+
+
+
+
+
+    <h1 style="margin-left: 27%;color:#888888"><i>Comments</i></h1>
+    <div class="flex-container" >
+        
+
+        {% for i in c %}
+         {% if i.fields.contributor == "Abtahi Ahmed" %}
+
+           <div class="div1" >
+
+             <table>
+                 <tr >
+                    <td style="text-align: left;float:left"><img src="{{baseURL}}/{{i.fields.image}} " alt="image not found" style="height: 30px;width:30px; border-radius:50%"> </td>
+                    <td style="text-align: left;float:left;margin-left:10px;color:#1c3477">{{i.fields.contributor}}</td>
+                 </tr>
+                 <tr>
+                    <td style="text-align: left;">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Dolores enim fugiat provident cumque 
+                        vero fuga possimus iste veniam blanditiis architecto! <br><br>
+                        <hr>
+                    </td>
+                 </tr>
+                    
+
+             </table>
+
+
+             <table>
+                <tr >
+                   <td style="text-align: left;float:left"><img src="{{baseURL}}/{{i.fields.image}} " alt="image not found" style="height: 30px;width:30px; border-radius:50%"> </td>
+                   <td style="text-align: left;float:left;margin-left:10px;color:#1c3477">{{i.fields.contributor}}</td>
+                </tr>
+                <tr>
+                   <td style="text-align: left;">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolores enim fugiat provident cumque 
+                       vero fuga possimus iste veniam blanditiis architecto! <br><br>
+                       <hr>
+                   </td>
+                </tr>
+                   
+
+            </table>
+          
+                
+            
+            
+            
+             
+            
+            
+            
+           </div> 
+           
+
+          
+         
+
+         
+
+         {% endif %}  
+
+
+        {% endfor %}
+
+        
+        
+        
+
+        
+    
+       
+
+    </div>
+
+    <div class="pagination" style="margin-left:40%;width:40%;">
+        <a href="#">&laquo;</a>
+        <a href="#" class="active">1</a>
+        <a href="#" >2</a>
+        <a href="#">3</a>
+        
+        <a href="#">&raquo;</a>
+      </div>
+
+      <br><br><br>
+
+   
+    
+</body>
+</html>
